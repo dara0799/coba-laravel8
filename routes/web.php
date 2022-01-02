@@ -13,18 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/blog', function () {
+    return view('posts', [
+        "title" => "BLOG"
+    ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
+        "title" => "ABOUT",
         "name" => " Dara",
         "email" => "dara@gm.com",
         "image" => "dara.jpg"
+    ]);    
+});    
+
+Route::get('/', function () {
+    return view('home', [
+        "title" => "HOME"
     ]);
 });
 
-Route::get('/blog', function () {
-    return view('posts');
-});
