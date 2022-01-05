@@ -38,17 +38,17 @@ Route::get('/categories', function() {
 });
 
 Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('category', [
-        'title' => $category->name,
+    return view('posts', [
+        'title' => "Postingan berdasarkan kategori film: $category->name",
         'posts' => $category->posts,
-        'category' => $category->name
+        'category' => $category->name->load(['editor', 'category'])
     ]);
 });
 
 Route::get('/editors/{editor:username}', function(User $editor) {
     return view('posts', [
-        'title' => 'User Posts',
-        'posts' => $editor->posts
+        'title' => "Postingan berdasarkan penyunting: $editor->name",
+        'posts' => $editor->posts->load(['editor', 'category'])
     ]);
 });
 

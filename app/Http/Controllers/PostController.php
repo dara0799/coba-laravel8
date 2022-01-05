@@ -10,9 +10,9 @@ class PostController extends Controller
     public function index() 
     {
         return view('posts', [
-            "title" => "BLOG",
+            "title" => "Seluruh Postingan",
             // "posts" => Post::all()
-            "posts" => Post::latest()->get()
+            "posts" => Post::with(['editor', 'category'])->latest()->get()
         ]);
     }
 
