@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['title', 'author', 'excerpt', 'body'];
+    // protected $fillable = [ 'title', 'category_id', 'user_id', 'slug', 'author', 'excerpt', 'body' ];
     protected $guarded = ['id'];
 
     public function category()
@@ -19,8 +19,8 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function editor()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

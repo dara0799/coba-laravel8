@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,6 +42,13 @@ Route::get('/categories/{category:slug}', function(Category $category) {
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name
+    ]);
+});
+
+Route::get('/editors/{editor:username}', function(User $editor) {
+    return view('posts', [
+        'title' => 'User Posts',
+        'posts' => $editor->posts
     ]);
 });
 
