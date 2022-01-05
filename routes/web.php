@@ -39,7 +39,7 @@ Route::get('/categories', function() {
 
 Route::get('/categories/{category:slug}', function(Category $category) {
     return view('posts', [
-        'title' => "Postingan berdasarkan kategori film: $category->name",
+        'title' => "Blog berdasarkan kategori film: $category->name",
         'posts' => $category->posts,
         'category' => $category->name->load(['editor', 'category'])
     ]);
@@ -47,7 +47,7 @@ Route::get('/categories/{category:slug}', function(Category $category) {
 
 Route::get('/editors/{editor:username}', function(User $editor) {
     return view('posts', [
-        'title' => "Postingan berdasarkan penyunting: $editor->name",
+        'title' => "Blog berdasarkan penyunting: $editor->name",
         'posts' => $editor->posts->load(['editor', 'category'])
     ]);
 });
