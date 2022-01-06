@@ -24,6 +24,7 @@ Route::get('/blog/{post:slug}', [PostController::class, 'show']);
 Route::get('/about', function () {
     return view('about', [
         "title" => "ABOUT",
+        "active" => "about",
         "name" => " Dara",
         "email" => "dara@gm.com",
         "image" => "dara.jpg"
@@ -33,6 +34,7 @@ Route::get('/about', function () {
 Route::get('/categories', function() {
     return view('categories', [
         'title' => 'All Categories',
+        "active" => "categories",
         'categories' => Category::all()
     ]);
 });
@@ -41,7 +43,8 @@ Route::get('/categories/{category:slug}', function(Category $category) {
     return view('posts', [
         'title' => "Blog berdasarkan kategori film: $category->name",
         'posts' => $category->posts,
-        'category' => $category->name->load(['editor', 'category'])
+        "active" => "categories",
+        'category' => $category->posts->load(['editor', 'category'])
     ]);
 });
 
@@ -54,7 +57,8 @@ Route::get('/editors/{editor:username}', function(User $editor) {
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "HOME"
+        "title" => "HOME",
+        "active" => "home",
     ]);
 });
 
