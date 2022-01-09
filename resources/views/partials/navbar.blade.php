@@ -10,14 +10,21 @@
                 <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" href="/">HOME</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" {{ ($active === "about") ? 'active' : '' }}" href="/about">ABOUT</a>
+                <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/about">ABOUT</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" {{ ($active === "blog") ? 'active' : '' }}" href="/blog">BLOG</a>
+                <a class="nav-link {{ ($active === "blog") ? 'active' : '' }}" href="/blog">BLOG</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" {{ ($active === "categories") ? 'active' : '' }}" href="/categories">CATEGORIES</a>
+                <a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">CATEGORIES</a>
             </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/login">
+                        <i class="bi bi-box-arrow-in-right"> LOGIN</i>
+                    </a>
+                </li>
             </ul>
         </div>
         </div>

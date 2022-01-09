@@ -24,7 +24,7 @@ class PostController extends Controller
         // $posts = Post::latest();
         return view('posts', [
             "title" => "Seluruh Blog" . $title,
-            "active" => "posts",
+            "active" => "blog",
             // "posts" => Post::all()
             "posts" => Post::latest()->filter(request(['search', 'category', 'editor']))->paginate(7)->withQueryString()
         ]);
@@ -34,7 +34,7 @@ class PostController extends Controller
     {
         return view('post', [
             "title" => "SINGLE POST",
-            "active" => "posts",
+            "active" => "blog",
             "post" => $post
         ]);
     }
